@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FTB整合包下载器 - VM汉化组</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.1/css/all.min.css">
+</head>
+<body>
+<section class="hero is-dark is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-narrow">
+                    <span class="icon is-large">
+                        <i class="fas fa-box-open fa-2x"></i>
+                    </span>
+                </div>
+                <div>
+                    <h1 class="title">FTB整合包下载器</h1>
+                    <p class="subtitle">Modrinth 格式</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-one-third">
+                <div class="box">
+                    <div class="field">
+                        <p class="control has-icons-left">
+                            <input class="input" type="text" placeholder="搜索" id="search">
+                            <span class="icon is-left">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="control has-icons-left">
+                        <div class="select is-fullwidth">
+                            <select id="filter">
+                                <option value="name">首字母排序</option>
+                                <option value="installs">安装量</option>
+                                <option value="plays">玩家数</option>
+                                <option value="released" selected>发布时间</option>
+                            </select>
+                        </div>
+                        <div class="icon is-left">
+                            <i class="fas fa-filter"></i>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <ul id="pack-list" class="menu-list"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-two-thirds" id="pack-display">
+                <section class="hero is-medium is-primary" id="pack-hero">
+                    <div class="hero-body">
+                        <p class="title" id="pack-name"></p>
+                        <p class="subtitle" id="pack-desc"></p>
+                    </div>
+                </section>
+
+                <div class="box content">
+                    <ul id="version-list" class="menu-list"></ul>
+                    <footer class="footer">
+                        <div class="content has-text-centered">
+                            <p>版权所有 © 2022-2024 VM汉化组<br>由捂脸制作</p>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="loading-modal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">正在加载整合包资源</p>
+        </header>
+        <section class="modal-card-body">
+            <p>仅会在首次进入时加载，请耐心等待</p>
+        </section>
+        <footer class="modal-card-foot">
+            <progress id="loading-progress" class="progress is-primary" value="0" max="100">0%</progress>
+        </footer>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="converter.js"></script>
+</body>
+</html>
